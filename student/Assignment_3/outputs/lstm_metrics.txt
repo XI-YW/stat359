@@ -1,0 +1,4 @@
+best_val_macro_f1	0.758673
+test_loss	0.959635
+test_accuracy	0.773040
+test_macro_f1	0.743383

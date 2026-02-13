@@ -2242,7 +2242,7 @@ vertical-align: -.125em;
 
 
 <p><em>Use this notebook to complete the sentence similarity and embedding visualization tasks.</em></p>
-<div id="e46a63af" class="cell" data-execution_count="36">
+<div id="e46a63af" class="cell" data-execution_count="44">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gensim.models <span class="im">import</span> Word2Vec</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics.pairwise <span class="im">import</span> cosine_similarity</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.tokenize <span class="im">import</span> word_tokenize</span>
@@ -2258,7 +2258,7 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="part-6-inspecting-and-comparing-embeddings">Part 6: Inspecting and comparing embeddings</h2>
 <section id="sentence-similarity" class="level3">
 <h3 class="anchored" data-anchor-id="sentence-similarity">Sentence Similarity</h3>
-<div id="a65ba222" class="cell" data-execution_count="37">
+<div id="a65ba222" class="cell" data-execution_count="45">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">&#39;punkt&#39;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">&#39;punkt_tab&#39;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2283,7 +2283,7 @@ vertical-align: -.125em;
 [nltk_data]   Package punkt_tab is already up-to-date!</code></pre>
 </div>
 </div>
-<div id="f7bd3eee" class="cell" data-execution_count="38">
+<div id="f7bd3eee" class="cell" data-execution_count="46">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of sentences for comparison</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sentences <span class="op">=</span> [</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;The cat sat on the mat.&quot;</span>,</span>
@@ -2298,7 +2298,7 @@ vertical-align: -.125em;
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Query sentence</span></span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">&quot;My pet cat is sleeping on the carpet.&quot;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="abea7279" class="cell" data-execution_count="39">
+<div id="abea7279" class="cell" data-execution_count="47">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>all_models <span class="op">=</span> {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;PyTorch Skip-Gram&quot;</span>: (my_pytorch_embeddings, <span class="dv">100</span>),</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Gensim Text8&quot;</span>: (gensim_model.wv, <span class="dv">100</span>),</span>
@@ -2314,7 +2314,7 @@ vertical-align: -.125em;
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(vectors, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="3010edc0" class="cell" data-execution_count="40">
+<div id="3010edc0" class="cell" data-execution_count="52">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>query_tokens <span class="op">=</span> tokenize_text(query)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> model_name, (model_data, dim) <span class="kw">in</span> all_models.items():</span>
@@ -2329,7 +2329,7 @@ vertical-align: -.125em;
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        sim_score <span class="op">=</span> cosine_similarity(q_vec, s_vec)[<span class="dv">0</span>][<span class="dv">0</span>]</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        results.append((sim_score, s))</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    results.sort(key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">0</span>], reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    results.sort(key <span class="op">=</span> <span class="kw">lambda</span> x: x[<span class="dv">0</span>], reverse<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> score, sentence <span class="kw">in</span> results:</span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&#39;&quot;</span><span class="sc">{</span>sentence<span class="sc">}</span><span class="ss">&quot;: </span><span class="sc">{</span>score<span class="sc">:.4f}</span><span class="ss">&#39;</span>)</span>
@@ -2384,13 +2384,13 @@ FastText (Wiki)
 </section>
 <section id="embedding-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="embedding-visualization">Embedding Visualization</h3>
-<div id="a0710995" class="cell" data-execution_count="41">
+<div id="a0710995" class="cell" data-execution_count="49">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> [<span class="st">&#39;dog&#39;</span>, <span class="st">&#39;cat&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;cow&#39;</span>, <span class="st">&#39;lion&#39;</span>, <span class="st">&#39;tiger&#39;</span>, <span class="st">&#39;elephant&#39;</span>, <span class="st">&#39;giraffe&#39;</span>, </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;eagle&#39;</span>, <span class="st">&#39;hawk&#39;</span>, <span class="st">&#39;sparrow&#39;</span>, <span class="st">&#39;penguin&#39;</span>, <span class="st">&#39;shark&#39;</span>, <span class="st">&#39;whale&#39;</span>, <span class="st">&#39;dolphin&#39;</span>, <span class="st">&#39;tuna&#39;</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>foods <span class="op">=</span> [<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;banana&#39;</span>, <span class="st">&#39;grape&#39;</span>, <span class="st">&#39;bread&#39;</span>, <span class="st">&#39;pasta&#39;</span>, <span class="st">&#39;rice&#39;</span>, <span class="st">&#39;potato&#39;</span>, </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;chicken&#39;</span>, <span class="st">&#39;beef&#39;</span>, <span class="st">&#39;pork&#39;</span>, <span class="st">&#39;fish&#39;</span>, <span class="st">&#39;coffee&#39;</span>, <span class="st">&#39;tea&#39;</span>, <span class="st">&#39;juice&#39;</span>, <span class="st">&#39;water&#39;</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="f7c16bcb" class="cell" data-execution_count="42">
+<div id="f7c16bcb" class="cell" data-execution_count="50">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_visualizations(model_dict, title):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    words <span class="op">=</span> animals <span class="op">+</span> foods</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    vectors <span class="op">=</span> []</span>
@@ -2422,7 +2422,7 @@ FastText (Wiki)
 <span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    ax2.set_title(<span class="ss">f&quot;</span><span class="sc">{</span>title<span class="sc">}</span><span class="ss"> - UMAP&quot;</span>)</span>
 <span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="00603741" class="cell" data-execution_count="43">
+<div id="00603741" class="cell" data-execution_count="51">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>run_visualizations(my_pytorch_embeddings, <span class="st">&quot;PyTorch Skip-Gram&quot;</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>run_visualizations(gensim_model.wv, <span class="st">&quot;Gensim Word2Vec&quot;</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>run_visualizations(google_word2vec_model, <span class="st">&quot;Pretrained Word2Vec&quot;</span>)</span>
@@ -2494,7 +2494,7 @@ FastText (Wiki)
 <h4 class="anchored" data-anchor-id="write-your-disclosure-here."><font color="red">Write your disclosure here.</font></h4>
 <ul>
 <li><strong>Tool(s) used:</strong> Google Gemini</li>
-<li><strong>How you used them:</strong> Debugging, concept explanation, Looking for ways to improve the training speed, getting hints for the code</li>
+<li><strong>How you used them:</strong> Debugging, concept explanation, Looking for ways to improve the training speed, getting hints for the code, solving github issues</li>
 <li><strong>What you verified yourself:</strong> Checked outputs/plots, checked shapes, did data comparison, searched for instructions, checked lecture slides</li>
 <li><strong>What you did <em>not</em> use AI for (if applicable):</strong> (optional)</li>
 </ul>

@@ -1,0 +1,3 @@
+test_accuracy	0.814305
+test_macro_f1	0.800104
+test_weighted_f1	0.816648
