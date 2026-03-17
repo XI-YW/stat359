@@ -1,0 +1,99 @@
+============================================================
+ARITHMETIC LLM EVALUATION SUMMARY
+============================================================
+
+Model: models/foundational_20260314_023425_177567/best_model.pt
+Tokenizer: data/tokenizer
+Timestamp: 20260314_040457
+
+METRICS:
+------------------------------------------------------------
+Total Samples: 100
+Correct Samples: 0
+Parseable Samples: 0
+Exact Match Accuracy: 0.00%
+Parse Success Rate: 0.00%
+Avg Generation Length: 43.44 tokens
+
+SAMPLE OUTPUTS:
+------------------------------------------------------------
+
+Sample 1:
+  Expression: 5
+  Ground Truth: 5
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : 5 <think> ( - ( 20 - 16 ) - 3 - ( ( 14 - 13 ) + ( 10 - 1 ) ) )
+
+Sample 2:
+  Expression: 6
+  Ground Truth: 6
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : 6 <think> ) + ( ) ) - - - ) - + ( ( ( 7 + 2 ) - ( 17 - 19 ) ) - ( ( 15 + 2 ) + ( 9 - 10 ) ) )
+
+Sample 3:
+  Expression: (15 + 14) - 6
+  Ground Truth: 23
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : ( 15 + 14 ) - 6 <think> + + ) + ( ( 14 - 11 ) + ( 15 - ( 11 - 2 ) ) )
+
+Sample 4:
+  Expression: ((9 + ((1 + 2) + 9)) + 2) - (20 + ((17 - 5) - (20 + 20)))
+  Ground Truth: 31
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : ( ( 9 + ( ( 1 + 2 ) + 9 ) ) + 2 ) - ( 20 + ( ( 17 - 5 ) - ( 20 + 20 ) ) ) <think> ( + ) - 18 - - + 17 + 10 ) + + ( ) - ( - + )
+
+Sample 5:
+  Expression: (((18 - 1) + (10 - 7)) + (3 - 16)) + 10
+  Ground Truth: 17
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : ( ( ( 18 - 1 ) + ( 10 - 7 ) ) + ( 3 - 16 ) ) + 10 <think> 14 ( + 15 ) )
+
+Sample 6:
+  Expression: ((((7 + 10) - (6 - 20)) - (7 - (17 + 15))) - (((17 - 5) - (10 + 8)) + 20)) - (10 - 20)
+  Ground Truth: 52
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : ( ( ( ( 7 + 10 ) - ( 6 - 20 ) ) - ( 7 - ( 17 + 15 ) ) ) - ( ( ( 17 - 5 ) - ( 10 + 8 ) ) + 20 ) ) - ( 10 - 20 ) <think> )
+
+Sample 7:
+  Expression: 2 - 13
+  Ground Truth: -11
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : 2 - 13 <think> ) + + ( ( 2 + ( 17 + 14 ) ) + ( ( 2 - 14 ) - ( 12 + 14 ) ) )
+
+Sample 8:
+  Expression: (((19 - 1) - (1 + 9)) - ((17 + 8) + (12 + (8 - 3)))) - 9
+  Ground Truth: -43
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : ( ( ( 19 - 1 ) - ( 1 + 9 ) ) - ( ( 17 + 8 ) + ( 12 + ( 8 - 3 ) ) ) ) - 9 <think> ( - ) ) + ( ( )
+
+Sample 9:
+  Expression: ((20 - (7 - (3 + 17))) + (8 - (16 - (12 - 13)))) + (3 - (((17 + 5) - (5 - 9)) - (11 + (2 + 15))))
+  Ground Truth: 29
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : ( ( 20 - ( 7 - ( 3 + 17 ) ) ) + ( 8 - ( 16 - ( 12 - 13 ) ) ) ) + ( 3 - ( ( ( 17 + 5 ) - ( 5 - 9 ) ) - ( 11 + ( 2 + 15 ) ) ) ) <think>
+
+Sample 10:
+  Expression: (((14 - 16) - (19 + (12 + 20))) + 18) + ((2 + 9) + 8)
+  Ground Truth: -16
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : ( ( ( 14 - 16 ) - ( 19 + ( 12 + 20 ) ) ) + 18 ) + ( ( 2 + 9 ) + 8 ) <think> 9 - - ( 8 - 15 ) )

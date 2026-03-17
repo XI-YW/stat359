@@ -84,8 +84,14 @@ def main():
         help="Maximum generation length in tokens (default: 512)"
     )
     
+    parser.add_argument(
+        "--test-file",
+        type=str,
+        help="Path to a fixed test file with one arithmetic expression per line"
+    )
+
     args = parser.parse_args()
-    
+
     # Determine device
     if args.device == "auto":
         import torch
@@ -132,7 +138,8 @@ def main():
             num_range=tuple(args.num_range),
             output_dir=args.output_dir,
             batch_size=args.batch_size,
-            max_gen_length=args.max_gen_length
+            max_gen_length=args.max_gen_length,
+            test_file=args.test_file
         )
         
         # Display results

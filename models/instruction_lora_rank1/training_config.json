@@ -1,0 +1,18 @@
+{
+  "learning_rate": 5e-05,
+  "batch_size": 32,
+  "num_epochs": 10,
+  "warmup_steps": 500,
+  "gradient_clip": 1.0,
+  "save_every": 500,
+  "eval_every": 500,
+  "device": "cuda",
+  "lora_config": {
+    "rank": 1,
+    "alpha": 2.0,
+    "target_modules": [
+      "attention"
+    ],
+    "dropout": 0.0
+  }
+}

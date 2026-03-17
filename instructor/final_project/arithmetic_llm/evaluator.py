@@ -6,6 +6,7 @@ including accuracy computation, result extraction, and reasoning verification.
 
 import re
 import os
+import time
 import json
 import torch
 from typing import Dict, Optional, List, Tuple, Union
@@ -254,7 +255,8 @@ class ModelEvaluator:
         num_range: Tuple[int, int] = (1, 20),
         output_dir: Optional[str] = None,
         batch_size: int = 32,
-        max_gen_length: int = 256
+        max_gen_length: int = 256,
+        test_file: Optional[str] = None
     ) -> Dict[str, float]:
         """Evaluate model on test set.
         
@@ -274,28 +276,47 @@ class ModelEvaluator:
                 - total_samples: Total number of test samples
         """
         from .generator import ExpressionGenerator
-        
-        # Generate test set
-        generator = ExpressionGenerator(
-            max_depth=max_depth,
-            num_range=num_range,
-            invalid_rate=0.0  # Only valid expressions for evaluation
-        )
-        
+
         test_expressions = []
         test_answers = []
-        
-        print(f"Generating {num_samples} test expressions...")
-        for _ in range(num_samples):
-            expression = generator.generate()
-            
-            # Get ground truth answer
-            result = eval_expression(expression)
-            if result['answer'] != 'ERROR':
-                test_expressions.append(expression)
-                test_answers.append(result['answer'])
-        
-        print(f"Generated {len(test_expressions)} valid test expressions")
+
+        if test_file is not None:
+            print(f"Loading test expressions from {test_file}...")
+            with open(test_file, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+
+                    record = json.loads(line)
+                    expression = record["expression"]
+
+                    result = eval_expression(expression)
+                    if result['answer'] != 'ERROR':
+                        test_expressions.append(expression)
+                        test_answers.append(result['answer'])
+
+            num_samples = len(test_expressions)
+            print(f"Loaded {num_samples} valid test expressions from file")
+
+        else:
+            generator = ExpressionGenerator(
+                max_depth=max_depth,
+                num_range=num_range,
+                invalid_rate=0.0  # Only valid expressions for evaluation
+            )
+
+            print(f"Generating {num_samples} test expressions...")
+            for _ in range(num_samples):
+                expression = generator.generate()
+
+                result = eval_expression(expression)
+                if result['answer'] != 'ERROR':
+                    test_expressions.append(expression)
+                    test_answers.append(result['answer'])
+
+            print(f"Generated {len(test_expressions)} valid test expressions")
+
         
         # Evaluate model on test set using batches
         correct = 0
@@ -305,6 +326,7 @@ class ModelEvaluator:
         
         print(f"Evaluating model with batch size {batch_size}...")
         
+        total_inference_time = 0.0
         # Process in batches
         for batch_start in range(0, len(test_expressions), batch_size):
             batch_end = min(batch_start + batch_size, len(test_expressions))
@@ -315,8 +337,11 @@ class ModelEvaluator:
             batch_prompts = [f"Evaluate: {expr} <think>" for expr in batch_expressions]
             
             # Generate solutions for batch
+            start_time = time.perf_counter()
             batch_generated_texts = self._generate_batch(batch_prompts, max_length=max_gen_length)
-            
+            end_time = time.perf_counter()
+
+            batch_time = end_time - start_time
             # Process batch results
             for i, (expression, ground_truth, generated_text) in enumerate(
                 zip(batch_expressions, batch_answers, batch_generated_texts)
@@ -345,6 +370,7 @@ class ModelEvaluator:
                         'correct': predicted_result == ground_truth if predicted_result is not None else False
                     })
             
+            total_inference_time += batch_time
             # Progress update
             print(f"Evaluated {batch_end}/{len(test_expressions)} samples")
         
@@ -356,9 +382,12 @@ class ModelEvaluator:
             'avg_generation_length': (total_length / total) if total > 0 else 0.0,
             'total_samples': total,
             'correct_samples': correct,
-            'parseable_samples': parseable
+            'parseable_samples': parseable,
+            'total_inference_time_sec': total_inference_time,
+            'avg_time_per_sample_sec': (total_inference_time / total) if total > 0 else 0.0,
+            'samples_per_second': (total / total_inference_time) if total_inference_time > 0 else 0.0,
         }
-        
+                
         # Save results if output directory is provided
         if output_dir:
             self._save_results(metrics, sample_outputs, output_dir)
@@ -573,7 +602,10 @@ class ModelEvaluator:
             f.write(f"Parseable Samples: {metrics['parseable_samples']}\n")
             f.write(f"Exact Match Accuracy: {metrics['exact_match_accuracy']:.2f}%\n")
             f.write(f"Parse Success Rate: {metrics['parse_success_rate']:.2f}%\n")
-            f.write(f"Avg Generation Length: {metrics['avg_generation_length']:.2f} tokens\n\n")
+            f.write(f"Avg Generation Length: {metrics['avg_generation_length']:.2f} tokens\n")
+            f.write(f"Total Inference Time: {metrics['total_inference_time_sec']:.4f} sec\n")
+            f.write(f"Avg Time per Sample: {metrics['avg_time_per_sample_sec']:.6f} sec\n")
+            f.write(f"Samples per Second: {metrics['samples_per_second']:.2f}\n\n")
             f.write("SAMPLE OUTPUTS:\n")
             f.write("-" * 60 + "\n")
             for i, sample in enumerate(sample_outputs, 1):

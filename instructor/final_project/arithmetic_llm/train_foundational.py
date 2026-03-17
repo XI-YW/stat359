@@ -452,7 +452,7 @@ def train_foundational_model(
             )
             # Rename to best_model.pt
             best_model_path = os.path.join(output_dir, 'best_model.pt')
-            os.rename(best_checkpoint_path, best_model_path)
+            os.replace(best_checkpoint_path, best_model_path)
             print(f"  New best model saved: {best_model_path}")
     
     # Save final model

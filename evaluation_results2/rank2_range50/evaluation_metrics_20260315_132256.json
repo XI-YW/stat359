@@ -1,0 +1,8 @@
+{
+  "exact_match_accuracy": 47.4,
+  "parse_success_rate": 95.6,
+  "avg_generation_length": 163.69,
+  "total_samples": 1000,
+  "correct_samples": 474,
+  "parseable_samples": 956
+}

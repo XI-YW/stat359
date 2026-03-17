@@ -1,0 +1,72 @@
+[
+  {
+    "expression": "1",
+    "ground_truth": 1,
+    "predicted": 1,
+    "generated_text": "Evaluate : 1 <think> <think> </think> Final Result : 1",
+    "correct": true
+  },
+  {
+    "expression": "12",
+    "ground_truth": 12,
+    "predicted": 12,
+    "generated_text": "Evaluate : 12 <think> <think> </think> Final Result : 12",
+    "correct": true
+  },
+  {
+    "expression": "10 - 7",
+    "ground_truth": 3,
+    "predicted": 3,
+    "generated_text": "Evaluate : 10 - 7 <think> <think> Step 1 : 10 - 7 = 3 Expression now : 3 </think> Final Result : 3",
+    "correct": true
+  },
+  {
+    "expression": "18",
+    "ground_truth": 18,
+    "predicted": 18,
+    "generated_text": "Evaluate : 18 <think> <think> </think> Final Result : 18",
+    "correct": true
+  },
+  {
+    "expression": "7",
+    "ground_truth": 7,
+    "predicted": 7,
+    "generated_text": "Evaluate : 7 <think> <think> </think> Final Result : 7",
+    "correct": true
+  },
+  {
+    "expression": "((((6 + (16 + 5)) - ((((4 - 11) + (20 - 15)) + ((19 + 3) + (13 + 20))) + 1)) - (13 + 9)) - 2) - (((((((13 + 8) - (16 + 8)) - ((3 + 16) + 7)) - ((16 - (14 - 3)) - (17 - (11 + 4)))) + ((((5 + 7) - (3 - 18)) + ((8 - 14) - (18 + 15))) + 2)) - 17) + ((5 + (6 - (6 - (7 - (18 - 20))))) - (((((19 + 16) - (15 - 4)) - ((7 - 12) - (16 - 6))) + 14) + ((((18 + 8) - (10 - 1)) + (7 + (14 + 11))) + (((1 - 3) - (20 - 17)) - ((11 - 11) + 2))))))",
+    "ground_truth": 89,
+    "predicted": null,
+    "generated_text": "Evaluate : ( ( ( ( 6 + ( 16 + 5 ) ) - ( ( ( ( 4 - 11 ) + ( 20 - 15 ) ) + ( ( 19 + 3 ) + ( 13 + 20 ) ) ) + 1 ) ) - ( 13 + 9 ) ) - 2 ) - ( ( ( ( ( ( ( 13 + 8 ) - ( 16 + 8 ) ) - ( ( 3 + 16 ) + 7 ) ) - ( ( 16 - ( 14 - 3 ) ) - ( 17 - ( 11 + 4 ) ) ) ) + ( ( ( ( 5 + 7 ) - ( 3 - 18 ) ) + ( ( 8 - 14 ) - ( 18 + 15 ) ) ) + 2 ) ) - 17 ) + ( ( 5 + ( 6 - ( 6 - ( 7 - ( 18 - 20 ) ) ) ) ) - ( ( ( ( ( 19 + 16 ) - ( 15 - 4 ) ) - ( ( 7 - 12 ) - ( 16 - 6 ) ) ) + 14 ) + ( ( ( ( 18 + 8 ) - ( 10 - 1 ) ) + ( 7 + ( 14 + 11 ) ) ) + ( ( ( 1 - 3 ) - ( 20 - 17 ) ) - ( ( 11 - 11 ) + 2 ) ) ) ) ) ) <think> ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ) ) 16 ( ( ( ( )",
+    "correct": false
+  },
+  {
+    "expression": "(((14 + (17 - (((10 - 13) + (4 + 6)) + 20))) - 1) + (15 + 1)) + (((((((18 - 16) + 5) + ((8 - 3) - (11 + 5))) - (10 + ((20 - 8) + (7 + 18)))) - (20 - (7 + 15))) + (((((13 - 2) + 9) - ((5 - 2) + 13)) - (((1 - 19) + 17) - 18)) + 3)) - 18)",
+    "ground_truth": -22,
+    "predicted": null,
+    "generated_text": "Evaluate : ( ( ( 14 + ( 17 - ( ( ( 10 - 13 ) + ( 4 + 6 ) ) + 20 ) ) ) - 1 ) + ( 15 + 1 ) ) + ( ( ( ( ( ( ( 18 - 16 ) + 5 ) + ( ( 8 - 3 ) - ( 11 + 5 ) ) ) - ( 10 + ( ( 20 - 8 ) + ( 7 + 18 ) ) ) ) - ( 20 - ( 7 + 15 ) ) ) + ( ( ( ( ( 13 - 2 ) + 9 ) - ( ( 5 - 2 ) + 13 ) ) - ( ( ( 1 - 19 ) + 17 ) - 18 ) ) + 3 ) ) - 18 ) <think> ( ( ( ( ( ( ( ( ( 16 ( 2",
+    "correct": false
+  },
+  {
+    "expression": "6",
+    "ground_truth": 6,
+    "predicted": 6,
+    "generated_text": "Evaluate : 6 <think> <think> </think> Final Result : 6",
+    "correct": true
+  },
+  {
+    "expression": "2",
+    "ground_truth": 2,
+    "predicted": 2,
+    "generated_text": "Evaluate : 2 <think> <think> </think> Final Result : 2",
+    "correct": true
+  },
+  {
+    "expression": "5",
+    "ground_truth": 5,
+    "predicted": 5,
+    "generated_text": "Evaluate : 5 <think> <think> </think> Final Result : 5",
+    "correct": true
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "exact_match_accuracy": 43.9,
+  "parse_success_rate": 76.3,
+  "avg_generation_length": 230.559,
+  "total_samples": 1000,
+  "correct_samples": 439,
+  "parseable_samples": 763,
+  "total_inference_time_sec": 993.1089585991576,
+  "avg_time_per_sample_sec": 0.9931089585991576,
+  "samples_per_second": 1.0069388573541442
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "expression": "5",
+    "ground_truth": 5,
+    "predicted": null,
+    "generated_text": "Evaluate : 5 <think> ( - ( 20 - 16 ) - 3 - ( ( 14 - 13 ) + ( 10 - 1 ) ) )",
+    "correct": false
+  },
+  {
+    "expression": "6",
+    "ground_truth": 6,
+    "predicted": null,
+    "generated_text": "Evaluate : 6 <think> ) + ( ) ) - - - ) - + ( ( ( 7 + 2 ) - ( 17 - 19 ) ) - ( ( 15 + 2 ) + ( 9 - 10 ) ) )",
+    "correct": false
+  },
+  {
+    "expression": "(15 + 14) - 6",
+    "ground_truth": 23,
+    "predicted": null,
+    "generated_text": "Evaluate : ( 15 + 14 ) - 6 <think> + + ) + ( ( 14 - 11 ) + ( 15 - ( 11 - 2 ) ) )",
+    "correct": false
+  },
+  {
+    "expression": "((9 + ((1 + 2) + 9)) + 2) - (20 + ((17 - 5) - (20 + 20)))",
+    "ground_truth": 31,
+    "predicted": null,
+    "generated_text": "Evaluate : ( ( 9 + ( ( 1 + 2 ) + 9 ) ) + 2 ) - ( 20 + ( ( 17 - 5 ) - ( 20 + 20 ) ) ) <think> ( + ) - 18 - - + 17 + 10 ) + + ( ) - ( - + )",
+    "correct": false
+  },
+  {
+    "expression": "(((18 - 1) + (10 - 7)) + (3 - 16)) + 10",
+    "ground_truth": 17,
+    "predicted": null,
+    "generated_text": "Evaluate : ( ( ( 18 - 1 ) + ( 10 - 7 ) ) + ( 3 - 16 ) ) + 10 <think> 14 ( + 15 ) )",
+    "correct": false
+  },
+  {
+    "expression": "((((7 + 10) - (6 - 20)) - (7 - (17 + 15))) - (((17 - 5) - (10 + 8)) + 20)) - (10 - 20)",
+    "ground_truth": 52,
+    "predicted": null,
+    "generated_text": "Evaluate : ( ( ( ( 7 + 10 ) - ( 6 - 20 ) ) - ( 7 - ( 17 + 15 ) ) ) - ( ( ( 17 - 5 ) - ( 10 + 8 ) ) + 20 ) ) - ( 10 - 20 ) <think> )",
+    "correct": false
+  },
+  {
+    "expression": "2 - 13",
+    "ground_truth": -11,
+    "predicted": null,
+    "generated_text": "Evaluate : 2 - 13 <think> ) + + ( ( 2 + ( 17 + 14 ) ) + ( ( 2 - 14 ) - ( 12 + 14 ) ) )",
+    "correct": false
+  },
+  {
+    "expression": "(((19 - 1) - (1 + 9)) - ((17 + 8) + (12 + (8 - 3)))) - 9",
+    "ground_truth": -43,
+    "predicted": null,
+    "generated_text": "Evaluate : ( ( ( 19 - 1 ) - ( 1 + 9 ) ) - ( ( 17 + 8 ) + ( 12 + ( 8 - 3 ) ) ) ) - 9 <think> ( - ) ) + ( ( )",
+    "correct": false
+  },
+  {
+    "expression": "((20 - (7 - (3 + 17))) + (8 - (16 - (12 - 13)))) + (3 - (((17 + 5) - (5 - 9)) - (11 + (2 + 15))))",
+    "ground_truth": 29,
+    "predicted": null,
+    "generated_text": "Evaluate : ( ( 20 - ( 7 - ( 3 + 17 ) ) ) + ( 8 - ( 16 - ( 12 - 13 ) ) ) ) + ( 3 - ( ( ( 17 + 5 ) - ( 5 - 9 ) ) - ( 11 + ( 2 + 15 ) ) ) ) <think>",
+    "correct": false
+  },
+  {
+    "expression": "(((14 - 16) - (19 + (12 + 20))) + 18) + ((2 + 9) + 8)",
+    "ground_truth": -16,
+    "predicted": null,
+    "generated_text": "Evaluate : ( ( ( 14 - 16 ) - ( 19 + ( 12 + 20 ) ) ) + 18 ) + ( ( 2 + 9 ) + 8 ) <think> 9 - - ( 8 - 15 ) )",
+    "correct": false
+  }
+]

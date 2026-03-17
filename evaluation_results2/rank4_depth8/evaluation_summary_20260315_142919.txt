@@ -1,0 +1,99 @@
+============================================================
+ARITHMETIC LLM EVALUATION SUMMARY
+============================================================
+
+Model: models/instruction_lora_rank4/merged_model.pt
+Tokenizer: data/tokenizer
+Timestamp: 20260315_142919
+
+METRICS:
+------------------------------------------------------------
+Total Samples: 1000
+Correct Samples: 426
+Parseable Samples: 536
+Exact Match Accuracy: 42.60%
+Parse Success Rate: 53.60%
+Avg Generation Length: 218.18 tokens
+
+SAMPLE OUTPUTS:
+------------------------------------------------------------
+
+Sample 1:
+  Expression: 1
+  Ground Truth: 1
+  Predicted: 1
+  Correct: True
+  Generated Text:
+    Evaluate : 1 <think> <think> </think> Final Result : 1
+
+Sample 2:
+  Expression: 12
+  Ground Truth: 12
+  Predicted: 12
+  Correct: True
+  Generated Text:
+    Evaluate : 12 <think> <think> </think> Final Result : 12
+
+Sample 3:
+  Expression: 10 - 7
+  Ground Truth: 3
+  Predicted: 3
+  Correct: True
+  Generated Text:
+    Evaluate : 10 - 7 <think> <think> Step 1 : 10 - 7 = 3 Expression now : 3 </think> Final Result : 3
+
+Sample 4:
+  Expression: 18
+  Ground Truth: 18
+  Predicted: 18
+  Correct: True
+  Generated Text:
+    Evaluate : 18 <think> <think> </think> Final Result : 18
+
+Sample 5:
+  Expression: 7
+  Ground Truth: 7
+  Predicted: 7
+  Correct: True
+  Generated Text:
+    Evaluate : 7 <think> <think> </think> Final Result : 7
+
+Sample 6:
+  Expression: ((((6 + (16 + 5)) - ((((4 - 11) + (20 - 15)) + ((19 + 3) + (13 + 20))) + 1)) - (13 + 9)) - 2) - (((((((13 + 8) - (16 + 8)) - ((3 + 16) + 7)) - ((16 - (14 - 3)) - (17 - (11 + 4)))) + ((((5 + 7) - (3 - 18)) + ((8 - 14) - (18 + 15))) + 2)) - 17) + ((5 + (6 - (6 - (7 - (18 - 20))))) - (((((19 + 16) - (15 - 4)) - ((7 - 12) - (16 - 6))) + 14) + ((((18 + 8) - (10 - 1)) + (7 + (14 + 11))) + (((1 - 3) - (20 - 17)) - ((11 - 11) + 2))))))
+  Ground Truth: 89
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : ( ( ( ( 6 + ( 16 + 5 ) ) - ( ( ( ( 4 - 11 ) + ( 20 - 15 ) ) + ( ( 19 + 3 ) + ( 13 + 20 ) ) ) + 1 ) ) - ( 13 + 9 ) ) - 2 ) - ( ( ( ( ( ( ( 13 + 8 ) - ( 16 + 8 ) ) - ( ( 3 + 16 ) + 7 ) ) - ( ( 16 - ( 14 - 3 ) ) - ( 17 - ( 11 + 4 ) ) ) ) + ( ( ( ( 5 + 7 ) - ( 3 - 18 ) ) + ( ( 8 - 14 ) - ( 18 + 15 ) ) ) + 2 ) ) - 17 ) + ( ( 5 + ( 6 - ( 6 - ( 7 - ( 18 - 20 ) ) ) ) ) - ( ( ( ( ( 19 + 16 ) - ( 15 - 4 ) ) - ( ( 7 - 12 ) - ( 16 - 6 ) ) ) + 14 ) + ( ( ( ( 18 + 8 ) - ( 10 - 1 ) ) + ( 7 + ( 14 + 11 ) ) ) + ( ( ( 1 - 3 ) - ( 20 - 17 ) ) - ( ( 11 - 11 ) + 2 ) ) ) ) ) ) <think> ( ( ( ( ( ( ( ( ( ( ( ( ) - 14 ) ) ) ) ) ) ) ) )
+
+Sample 7:
+  Expression: (((14 + (17 - (((10 - 13) + (4 + 6)) + 20))) - 1) + (15 + 1)) + (((((((18 - 16) + 5) + ((8 - 3) - (11 + 5))) - (10 + ((20 - 8) + (7 + 18)))) - (20 - (7 + 15))) + (((((13 - 2) + 9) - ((5 - 2) + 13)) - (((1 - 19) + 17) - 18)) + 3)) - 18)
+  Ground Truth: -22
+  Predicted: None
+  Correct: False
+  Generated Text:
+    Evaluate : ( ( ( 14 + ( 17 - ( ( ( 10 - 13 ) + ( 4 + 6 ) ) + 20 ) ) ) - 1 ) + ( 15 + 1 ) ) + ( ( ( ( ( ( ( 18 - 16 ) + 5 ) + ( ( 8 - 3 ) - ( 11 + 5 ) ) ) - ( 10 + ( ( 20 - 8 ) + ( 7 + 18 ) ) ) ) - ( 20 - ( 7 + 15 ) ) ) + ( ( ( ( ( 13 - 2 ) + 9 ) - ( ( 5 - 2 ) + 13 ) ) - ( ( ( 1 - 19 ) + 17 ) - 18 ) ) + 3 ) ) - 18 ) <think> ( ( ( ( ( ( ( + ( ( ( ( ( )
+
+Sample 8:
+  Expression: 6
+  Ground Truth: 6
+  Predicted: 6
+  Correct: True
+  Generated Text:
+    Evaluate : 6 <think> <think> </think> Final Result : 6
+
+Sample 9:
+  Expression: 2
+  Ground Truth: 2
+  Predicted: 2
+  Correct: True
+  Generated Text:
+    Evaluate : 2 <think> <think> </think> Final Result : 2
+
+Sample 10:
+  Expression: 5
+  Ground Truth: 5
+  Predicted: 5
+  Correct: True
+  Generated Text:
+    Evaluate : 5 <think> <think> </think> Final Result : 5
